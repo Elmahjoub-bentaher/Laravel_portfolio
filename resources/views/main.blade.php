@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        @if($detail)
         <link rel="icon" type="image/x-icon" href="{{asset('storage/'.$detail->profile_image )}}">
-        <link href="{{ asset('../resources/css/normalize.css') }}" rel="stylesheet">
-        <link href="{{ asset('../resources/css/all.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('../resources/css/main.css') }}" rel="stylesheet">
+        @endif
+        @vite['resources/css/main.css','resources/css/all.min.css','resources/css/normalize.css','resources/js/main.js']
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
         <title>My Portfolio</title>
@@ -336,9 +336,11 @@
             </div>
 
             <footer style="text-align: center; padding: 10px;">
+                @if($detail)
                 <div class="container">
                     {{ $detail->name }} &copy; All right Reserved <span id="year"></span>
                 </div>
+                @endif
                 <script>
                     const date = new Date();
                     const year = date.getFullYear();
@@ -350,9 +352,11 @@
 
         <div class="side_nav">
             <div class="img">
+                @if($detail)
                 <a href="#about">
                     <img src="{{asset('storage/'.$detail->profile_image )}}" alt="profile_pic" title="Home">
                 </a>
+                @endif
             </div>
             <div class="icon">
                 <a href="#certificate">
@@ -415,9 +419,6 @@
                 },
             });
         </script>
-
-    
-    <script src="../resources/js/main.js"></script>
 
     </body>
 </html>
